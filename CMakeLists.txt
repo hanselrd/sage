@@ -39,6 +39,7 @@ option (SAGE_TESTS "Build unit tests" OFF)
 option (SAGE_PLAYGROUND "Build playground" ON)
 option (SAGE_BUILD_STATIC "Also build static version of this library" OFF)
 
+add_subdirectory(extlibs)
 add_subdirectory(src)
 
 if(SAGE_TESTS)

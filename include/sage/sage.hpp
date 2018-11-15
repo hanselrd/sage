@@ -21,6 +21,6 @@
 #define SAGE_HPP
 
 #include <sage/core/config.hpp>
-#include <sage/test/test.hpp>
+#include <sage/core/log.hpp>
 
 #endif

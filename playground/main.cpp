@@ -20,7 +20,19 @@
 #include <sage/sage.hpp>
 
 auto main() -> int {
-    sg::test::test();
+    sg::log::init();
+    LOG_INTERNAL_TRACE("trace");
+    LOG_INTERNAL_DEBUG("debug");
+    LOG_INTERNAL_INFO("info");
+    LOG_INTERNAL_WARN("warn");
+    LOG_INTERNAL_ERROR("error");
+    LOG_INTERNAL_CRITICAL("critical");
 
+    LOG_TRACE("trace");
+    LOG_DEBUG("debug");
+    LOG_INFO("info");
+    LOG_WARN("warn");
+    LOG_ERROR("error");
+    LOG_CRITICAL("critical");
     return 0;
 }

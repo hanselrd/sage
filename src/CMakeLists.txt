@@ -20,7 +20,7 @@
 project(${CMAKE_PROJECT_NAME})
 
 set(sources
-    test.cpp)
+    log.cpp)
 
 set(lua_api_sources
     )
@@ -28,9 +28,12 @@ set(lua_api_sources
 set(unittest_sources
     )
 
-set(libs
+set(public_libs
     Threads::Threads
     $<$<AND:$<CXX_COMPILER_ID:GNU>,$<VERSION_LESS:$<CXX_COMPILER_VERSION>,9.0>>:stdc++fs>
+    spdlog)
+
+set(private_libs
     )
 
 add_library(${PROJECT_NAME} SHARED
@@ -75,10 +78,16 @@ if(SAGE_BUILD_STATIC)
         $<$<CXX_COMPILER_ID:MSVC>:/Wall /WX>)
 endif()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE
-    ${libs})
+target_link_libraries(${PROJECT_NAME}
+    PUBLIC
+        ${public_libs}
+    PRIVATE
+        ${private_libs})
 
 if(SAGE_BUILD_STATIC)
-    target_link_libraries(${PROJECT_NAME}static PRIVATE
-        ${libs})
+    target_link_libraries(${PROJECT_NAME}static
+        PUBLIC
+            ${public_libs}
+        PRIVATE
+            ${private_libs})
 endif()

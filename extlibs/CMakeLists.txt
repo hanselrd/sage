@@ -17,21 +17,6 @@
 # along with Sage.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-project(playground)
+project(extlibs)
 
-set(sources
-    )
-
-set(libs
-    ${CMAKE_PROJECT_NAME})
-
-add_executable(${PROJECT_NAME}
-    ${sources}
-    main.cpp)
-
-target_compile_options(${PROJECT_NAME} PRIVATE
-    $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Wall -Wextra -Werror>
-    $<$<CXX_COMPILER_ID:MSVC>:/Wall /WX>)
-
-target_link_libraries(${PROJECT_NAME}
-    ${libs})
+add_subdirectory(spdlog)
