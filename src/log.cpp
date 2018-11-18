@@ -17,13 +17,10 @@
  *  along with Sage.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <iostream>
 #include <memory>
 #include <sage/core/log.hpp>
-// clang-format off
-#include <spdlog/spdlog.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
-#include <iostream>
-// clang-format on
 
 namespace sg {
 namespace log {
@@ -34,7 +31,7 @@ auto external_logger = std::shared_ptr<spdlog::logger>{};
 
 auto init() -> void {
     try {
-        internal_logger = spdlog::stdout_color_mt("internal");
+        internal_logger = spdlog::stdout_color_mt("sage");
         internal_logger->set_level(spdlog::level::trace);
 
         external_logger = spdlog::stdout_color_mt("app");

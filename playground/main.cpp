@@ -19,8 +19,10 @@
 
 #include <sage/sage.hpp>
 
-auto main() -> int {
+auto main(int argc, char *argv[]) -> int {
     sg::log::init();
+    UNUSED_ARG(argc);
+    UNUSED_ARG(argv);
     LOG_INTERNAL_TRACE("trace");
     LOG_INTERNAL_DEBUG("debug");
     LOG_INTERNAL_INFO("info");
