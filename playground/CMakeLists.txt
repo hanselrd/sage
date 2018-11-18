@@ -1,37 +1,30 @@
-#
-# This file is part of Sage.
-#
-# Copyright (C) 2018  Hansel De La Cruz
-#
-# Sage is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# Sage is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with Sage.  If not, see <http://www.gnu.org/licenses/>.
-#
+#[==[
+  This file is part of Sage.
 
-project(playground)
+  Copyright (C) 2018  Hansel De La Cruz
 
-set(sources
-    )
+  Sage is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
 
-set(libs
-    ${CMAKE_PROJECT_NAME})
+  Sage is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
 
-add_executable(${PROJECT_NAME}
-    ${sources}
+  You should have received a copy of the GNU Affero General Public License
+  along with Sage.  If not, see <http://www.gnu.org/licenses/>.
+#]==]
+
+add_executable(sage-playground
     main.cpp)
 
-target_compile_options(${PROJECT_NAME} PRIVATE
-    $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Wall -Wextra -Werror>
-    $<$<CXX_COMPILER_ID:MSVC>:/Wall /WX>)
+target_compile_options(sage-playground PRIVATE
+    $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Wall -Wextra>
+    $<$<CXX_COMPILER_ID:MSVC>:/Wall>)
 
-target_link_libraries(${PROJECT_NAME}
-    ${libs})
+target_compile_features(sage-playground PRIVATE cxx_std_17)
+
+target_link_libraries(sage-playground PRIVATE
+    sage)
