@@ -41,14 +41,13 @@ option(SAGE_BUILD_TESTS "Build tests" ON)
 option(SAGE_BUILD_PLAYGROUND "Build playground" ON)
 
 add_subdirectory(extlibs)
+add_subdirectory(src)
 
 if(SAGE_BUILD_TESTS)
     include(CTest)
     include(Catch)
-    # add_subdirectory(tests)
+    add_subdirectory(tests)
 endif()
-
-add_subdirectory(src)
 
 if(SAGE_BUILD_PLAYGROUND)
     add_subdirectory(playground)

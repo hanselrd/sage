@@ -17,9 +17,9 @@
  *  along with Sage.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "core/log.hpp"
 #include <iostream>
 #include <memory>
-#include <sage/core/log.hpp>
 #include <spdlog/sinks/stdout_color_sinks.h>
 
 namespace sg {

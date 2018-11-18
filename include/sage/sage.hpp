@@ -20,9 +20,9 @@
 #ifndef SAGE_HPP
 #define SAGE_HPP
 
-#include <sage/core/assert.hpp>
-#include <sage/core/config.hpp>
-#include <sage/core/log.hpp>
-#include <sage/core/macros.hpp>
+#include "core/assert.hpp"
+#include "core/config.hpp"
+#include "core/log.hpp"
+#include "core/macros.hpp"
 
 #endif

@@ -20,8 +20,8 @@
 #ifndef SAGE_CORE_ASSERT_HPP
 #define SAGE_CORE_ASSERT_HPP
 
+#include "log.hpp"
 #include <cstdlib>
-#include <sage/core/log.hpp>
 #include <stdexcept>
 
 #ifndef NDEBUG

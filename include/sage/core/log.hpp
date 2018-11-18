@@ -20,8 +20,8 @@
 #ifndef SAGE_CORE_LOG_HPP
 #define SAGE_CORE_LOG_HPP
 
+#include "config.hpp"
 #include <memory>
-#include <sage/core/config.hpp>
 #include <spdlog/spdlog.h>
 
 namespace sg {

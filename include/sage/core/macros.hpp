@@ -20,7 +20,7 @@
 #ifndef SAGE_CORE_MACROS_HPP
 #define SAGE_CORE_MACROS_HPP
 
-#include <sage/core/log.hpp>
+#include "log.hpp"
 
 #define STRINGIFY(x) #x
 

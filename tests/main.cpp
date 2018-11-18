@@ -19,7 +19,7 @@
 
 #define CATCH_CONFIG_RUNNER
 #include <catch2/catch.hpp>
-#include <sage/sage.hpp>
+#include <sage/core/log.hpp>
 
 auto main(int argc, char *argv[]) -> int {
     sg::log::init();

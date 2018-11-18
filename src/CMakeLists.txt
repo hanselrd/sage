@@ -22,10 +22,7 @@ set(THREADS_PREFER_PTHREAD_FLAG TRUE)
 find_package(Threads REQUIRED)
 
 set(sources
-    log.cpp)
-
-set(unittest_sources
-    log.unittest.cpp)
+    core/log.cpp)
 
 if(SAGE_BUILD_SHARED_LIB)
     add_library(sage SHARED
@@ -40,7 +37,7 @@ target_include_directories(sage
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
         $<INSTALL_INTERFACE:include>
     PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR})
+        ${CMAKE_CURRENT_SOURCE_DIR}/../include/sage)
 
 if(SAGE_BUILD_SHARED_LIB)
     target_compile_definitions(sage PRIVATE
@@ -69,22 +66,3 @@ target_link_libraries(sage
         spdlog::spdlog
     PRIVATE
         )
-
-if(SAGE_BUILD_TESTS)
-    add_executable(sage-test
-        ${unittest_sources}
-        ../tests/main.cpp)
-
-    target_compile_options(sage-test PRIVATE
-        $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Wall -Wextra>
-        $<$<CXX_COMPILER_ID:MSVC>:/Wall>)
-
-    target_compile_features(sage-test PRIVATE cxx_std_17)
-
-    target_link_libraries(sage-test PRIVATE
-        sage
-        Catch2::Catch2)
-
-    catch_discover_tests(sage-test
-        WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
-endif()
